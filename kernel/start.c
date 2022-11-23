@@ -6,6 +6,7 @@
 
 void main();
 void timerinit();
+static void pmpinit();
 
 // entry.S needs one stack per CPU.
 __attribute__ ((aligned (16))) char stack0[4096 * NCPU];
@@ -44,9 +45,21 @@ start()
   // keep each CPU's hartid in its tp register, for cpuid().
   int id = r_mhartid();
   w_tp(id);
-
+  pmpinit();
   // switch to supervisor mode and jump to main().
   asm volatile("mret");
+}
+
+static void
+pmpinit()
+{
+  // see figure 3.27 "PMP address register format, RV64" and table 3.10 "NAPOT
+  // range encoding in PMP address and configuration registers" in the RISC-V
+  // privileged specification
+  // we set the bits such that this matches any 56-bit physical address
+  w_pmpaddr0((~0ULL) >> 10);
+  // then we allow the access
+  w_pmpcfg0(PMP_R | PMP_W | PMP_X | PMP_MATCH_NAPOT);
 }
 
 // set up to receive timer interrupts in machine mode,
