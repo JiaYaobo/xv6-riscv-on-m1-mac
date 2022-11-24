@@ -1,6 +1,11 @@
 {
     "files.associations": {
         "memlayout.h": "c",
-        "ostream": "c"
-    }
+        "ostream": "c",
+        "__config": "c",
+        "syscall.h": "c",
+        "chrono": "c",
+        "__locale": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

@@ -261,6 +261,7 @@ fork(void)
   int i, pid;
   struct proc *np;
   struct proc *p = myproc();
+  
 
   // Allocate process.
   if((np = allocproc()) == 0){
@@ -276,6 +277,8 @@ fork(void)
   np->sz = p->sz;
 
   np->parent = p;
+
+  np->trace_mask = p->trace_mask;
 
   // copy saved user registers.
   *(np->trapframe) = *(p->trapframe);
