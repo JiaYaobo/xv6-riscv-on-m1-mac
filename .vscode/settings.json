@@ -5,7 +5,18 @@
         "__config": "c",
         "syscall.h": "c",
         "chrono": "c",
-        "__locale": "c"
+        "__locale": "c",
+        "date.h": "c",
+        "sysinfo.h": "c",
+        "vector": "c",
+        "defs.h": "c",
+        "proc.h": "c",
+        "stat.h": "c",
+        "user.h": "c",
+        "riscv.h": "c",
+        "param.h": "c",
+        "types.h": "c",
+        "spinlock.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
