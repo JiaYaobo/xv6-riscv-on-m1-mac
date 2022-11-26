@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     sieve(pipeline); 
   } else {
     for (i = 2; i <= PRIME_END; i++) {
-      write(pipeline[1], &i, INT_SIZE); // write on original 
+      write(pipeline[1], &i, INT_SIZE); // write  
     }
     close(pipeline[1]);
     wait((int *)0);
