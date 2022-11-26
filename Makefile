@@ -151,7 +151,11 @@ UPROGS=\
 	$U/_zombie\
 	$U/_sleep\
 	$U/_trace\
-	$U/_sysinfotest
+	$U/_sysinfotest\
+	$U/_pingpong\
+	$U/_primes\
+	$U/_xargs\
+	$U/_find
 
 
 ifeq ($(LAB),syscall)

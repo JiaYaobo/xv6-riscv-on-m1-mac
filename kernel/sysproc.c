@@ -118,6 +118,7 @@ sys_sysinfo(void){
   if(argaddr(0, &addr) < 0){
     return -1;
   }
+  
   struct sysinfo info;
   info.freemem = get_freemem();
   info.nproc = get_nproc();

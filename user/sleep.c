@@ -5,7 +5,7 @@
 int main(int argc, char *argv[])
 {
   
-  int time = argc;
+  int time = atoi(argv[0]);
   if (time < 0)
   {
     fprintf(2, "time must be positive integer\n");

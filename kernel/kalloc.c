@@ -84,10 +84,12 @@ kalloc(void)
 int get_freemem(void){
   int unuse = 0;
   struct run *r;
+  acquire(&kmem.lock);
   r = kmem.freelist;
   if(r){
     unuse += PGSIZE;
     r = r->next;
   }
+  release(&kmem.lock);
   return unuse;
 }
